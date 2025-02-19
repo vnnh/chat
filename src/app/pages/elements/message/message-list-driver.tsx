@@ -4,20 +4,6 @@ import useMessages, { IMessage } from "@/app/ctx/messages";
 import { useSupabase } from "@/app/ctx/supabase-provider";
 import { ITEMS_PER_PAGE } from "@/lib/supabase";
 
-type Message = {
-	author: string;
-	created_at: string;
-	id: string;
-	is_edited: boolean;
-	text: string;
-	users: {
-		avatar_url: string;
-		created_at: string;
-		display_name: string;
-		id: string;
-	};
-};
-
 export default function MessageListDriver() {
 	const supabase = useSupabase();
 	const { messages, predictions, addMessage, editMessage, deleteMessage, removePrediction } = useMessages();
@@ -84,7 +70,7 @@ export default function MessageListDriver() {
 						.select("*")
 						.eq("id", (payload.new as IMessage).author)
 						.single()
-						.then((v) => {
+						.then(() => {
 							editMessage(payload.new as IMessage);
 						});
 				},

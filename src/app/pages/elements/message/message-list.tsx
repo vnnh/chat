@@ -1,4 +1,4 @@
-import useMessages, { IMessage } from "@/app/ctx/messages";
+import { IMessage } from "@/app/ctx/messages";
 import Message from "./message";
 import { useSupabase } from "@/app/ctx/supabase-provider";
 import MessageDeleteHandler from "./actions/message-delete-handler";
