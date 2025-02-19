@@ -44,6 +44,7 @@ export default tseslint.config(
 				},
 			],
 			"prefer-const": 0,
+			"@typescript-eslint/no-unused-vars": "off",
 			"@typescript-eslint/no-unnecessary-condition": "warn",
 			"@typescript-eslint/no-array-constructor": 0,
 			"@kapouer/no-return-in-loop/no-return-in-loop": "error",

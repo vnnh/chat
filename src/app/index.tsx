@@ -1,12 +1,17 @@
 import { PropsWithChildren } from "react";
-import { ThemeProvider } from "../ctx/theme-provider";
+import { ThemeProvider } from "./ctx/theme-provider";
+import Layout from "./pages/layout";
+import { SupabaseProvider } from "./ctx/supabase-provider";
+import { Toaster } from "@/components/ui/sonner";
 
-function App(props: PropsWithChildren) {
+export default function App(props: PropsWithChildren) {
 	return (
 		<ThemeProvider defaultTheme="dark" storageKey="__ui_theme">
-			{props.children}
+			<SupabaseProvider>
+				<Layout />
+				<Toaster position="top-center" />
+				{props.children}
+			</SupabaseProvider>
 		</ThemeProvider>
 	);
 }
-
-export default App;
